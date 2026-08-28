@@ -1,0 +1,18 @@
+import { useAuth } from "@/_core/hooks/useAuth";
+import { PublicLayout } from "@/components/PublicLayout";
+import { startLogin } from "@/const";
+import { trpc } from "@/lib/trpc";
+import { CalendarCheck2, CalendarX2, Clock3, Loader2, LogIn } from "lucide-react";
+import { toast } from "sonner";
+import { Link } from "wouter";
+
+const formatDateTime = (value: Date) => new Intl.DateTimeFormat("pt-BR", { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }).format(new Date(value));
+
+export default function MyLessons() {
+  const { isAuthenticated, loading } = useAuth();
+  const utils = trpc.useUtils();
+  const bookings = trpc.schedule.mine.useQuery(undefined, { enabled: isAuthenticated });
+  const cancel = trpc.schedule.cancel.useMutation({ onSuccess: () => { toast.success("Reserva cancelada. O horário voltou a ficar disponível."); void utils.schedule.mine.invalidate(); void utils.schedule.available.invalidate(); }, onError: error => toast.error(error.message || "Não foi possível cancelar sua aula.") });
+
+  return <PublicLayout><main className="min-h-[68vh]"><section className="mx-auto max-w-[1120px] px-5 py-16 lg:px-8 lg:py-20"><p className="eyebrow">Área do aluno</p><h1 className="font-editorial mt-6 text-6xl leading-[.94] text-[#1F4D3A] lg:text-7xl">Minhas aulas</h1><p className="mt-5 max-w-xl text-lg leading-8 text-[#557060]">Aqui ficam os encontros que você já confirmou e os próximos passos da sua jornada.</p></section>{!loading && !isAuthenticated ? <section className="mx-auto max-w-[1120px] px-5 pb-24 lg:px-8"><div className="rounded-[2rem] bg-[#EEF1E8] p-8 text-center"><LogIn className="mx-auto text-[#1F4D3A]"/><h2 className="font-editorial mt-5 text-4xl text-[#1F4D3A]">Entre para ver suas aulas.</h2><button onClick={() => startLogin()} className="mt-7 rounded-full bg-[#1F4D3A] px-6 py-3 text-sm font-bold text-[#F8F4E8]">Entrar na minha conta</button></div></section> : <section className="mx-auto max-w-[1120px] px-5 pb-24 lg:px-8">{bookings.isLoading ? <div className="grid min-h-52 place-items-center"><Loader2 className="animate-spin text-[#1F4D3A]"/></div> : !bookings.data?.length ? <div className="rounded-[2rem] border border-dashed border-[#A8B89F] bg-[#FFFDF6] p-12 text-center"><CalendarCheck2 className="mx-auto text-[#1F4D3A]" size={32}/><h2 className="font-editorial mt-5 text-4xl text-[#1F4D3A]">Ainda não há aula marcada.</h2><p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#557060]">Quando você escolher um horário, ele aparece aqui com todas as informações para o encontro.</p><Link href="/agendar" className="mt-7 inline-flex rounded-full bg-[#1F4D3A] px-5 py-3 text-sm font-bold text-[#F8F4E8]">Ver agenda disponível</Link></div> : <div className="grid gap-4">{bookings.data.map(booking => <article key={booking.bookingId} className="flex flex-col justify-between gap-5 rounded-3xl border border-[#D7DDCF] bg-[#FFFDF6] p-6 sm:flex-row sm:items-center"><div className="flex items-center gap-4"><span className="grid h-12 w-12 place-items-center rounded-full bg-[#DCE6D8] text-[#1F4D3A]"><Clock3 size={20}/></span><div><p className="font-semibold capitalize text-[#1F4D3A]">{formatDateTime(booking.startsAt)}</p><p className="mt-1 text-sm text-[#557060]">Aula individual · {booking.durationMinutes} minutos</p></div></div><button onClick={() => cancel.mutate({ bookingId: booking.bookingId })} disabled={cancel.isPending} className="inline-flex items-center justify-center gap-2 rounded-full border border-[#B34343] px-4 py-2 text-xs font-bold text-[#B34343] transition hover:bg-red-50 disabled:opacity-50"><CalendarX2 size={15}/>Cancelar aula</button></article>)}</div>}</section>}</main></PublicLayout>;
+}
