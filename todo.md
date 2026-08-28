@@ -1,0 +1,33 @@
+# Project TODO
+
+- [x] Definir os papéis de aluno e professor/admin e a jornada de agendamento.
+- [x] Modelar slots de disponibilidade e reservas de aulas no banco de dados.
+- [x] Implementar procedimentos seguros para criar, listar e cancelar reservas.
+- [x] Implementar aviso ao professor para novas reservas e cancelamentos.
+- [x] Preparar o e-mail transacional do professor para ativação posterior com credenciais e remetente verificado.
+- [x] Criar a landing page com paleta creme e verde e acentos amarelos `#E6D400`.
+- [x] Criar a página Método com as etapas Observe, Pratique e Use.
+- [x] Criar a página Como Funciona com a jornada de aprendizagem em etapas.
+- [x] Criar a página Conteúdos para materiais, aulas e ferramentas.
+- [x] Criar a página Sobre com a história, missão, visão e apresentação do professor Douglas.
+- [x] Criar a navegação funcional entre Método, Como Funciona, Conteúdos e Sobre.
+- [x] Criar a experiência autenticada do aluno para consultar horários e reservar aulas.
+- [x] Criar o painel administrativo para o professor visualizar e gerir a agenda completa.
+- [x] Garantir responsividade e acessibilidade nas páginas públicas e nos painéis.
+- [x] Escrever testes para regras de reserva e permissões administrativas.
+- [x] Executar verificação técnica e revisão visual dos principais fluxos.
+- [x] Analisar o documento de requisitos e criar os cartões correspondentes no Trello.
+- [x] Preencher no Trello a descrição padronizada dos cartões #008 a #022 e validar a estrutura antes da conclusão.
+- [x] Comparar o quadro-modelo do professor com o backlog atual e mapear os ajustes necessários.
+- [x] Adequar integralmente o quadro do projeto aos critérios de estrutura, documentação, checklist, responsáveis e QA do modelo do professor.
+- [x] Adicionar checklist nativo aos cartões #008 a #023 e verificar o contador visual de cada um.
+- [x] Atribuir membros reais do Trello aos cartões de acordo com as responsabilidades definidas.
+- [x] Completar em todos os cartões as seções de documentação do desenvolvedor e QA no nível do cartão-modelo.
+- [x] Verificar cartão a cartão a compatibilidade estrutural e documental antes de concluir a adequação.
+- [x] Revisar posteriormente a duplicação visual de membros apresentada pelo Trello durante as atribuições em massa.
+- [x] Confirmar explicitamente o membro responsável do cartão #002 e revalidar seu indicador visual.
+- [x] Registrar a verificação visual dos indicadores de checklist dos cartões #008 a #023.
+- [x] Reorganizar os cartões de cada lista do Trello em ordem numérica crescente e confirmar a sequência final.
+- [x] Reescrever o documento de requisitos em uma versão profissional, coerente com a implementação e rastreável ao Trello.
+- [x] Preparar o projeto para colaboração no GitHub com documentação de instalação, contribuição e fluxo de pull request.
+- [ ] Publicar a versão preparada do projeto no repositório GitHub https://github.com/camilamendes-dev/learntolearn e validar o acesso colaborativo.
