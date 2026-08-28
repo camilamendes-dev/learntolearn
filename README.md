@@ -25,8 +25,8 @@ Para executar uma cópia local, a pessoa colaboradora precisa de Node.js 22 ou s
 ## Instalação local
 
 ```bash
-git clone https://github.com/SEU-USUARIO/learn-to-learn-english.git
-cd learn-to-learn-english
+git clone https://github.com/SEU-USUARIO/learntolearn.git
+cd learntolearn
 corepack enable
 pnpm install --frozen-lockfile
 touch .env
@@ -67,16 +67,16 @@ Antes de abrir uma pull request, execute `pnpm check`, `pnpm test` e `pnpm build
 ```text
 client/                 interface React e páginas
 server/                 API tRPC, regras de negócio e testes
-drizzle/                schema e migrações do banco
+drizzzle/               schema e migrações do banco
 docs/                   requisitos, arquitetura e documentação do projeto
 .github/                automação e modelos de colaboração do GitHub
 ```
 
 ## Fluxo de colaboração
 
-O fluxo de contribuição é detalhado em [CONTRIBUTING.md](CONTRIBUTING.md). Em síntese, cada tarefa deve partir de um cartão do Trello, ser desenvolvida em uma branch curta e chegar à `main` somente por pull request revisada. Utilize títulos objetivos, por exemplo `feat: agenda pública`, `fix: bloqueia dupla reserva` ou `docs: revisa requisitos`.
+O modelo adotado pela equipe é **fork e pull request**. Cada colega cria um fork de [camilamendes-dev/learntolearn](https://github.com/camilamendes-dev/learntolearn), desenvolve uma tarefa em branch própria e propõe a alteração para a branch `master` do repositório principal. Esse modelo permite colaboração sem conceder acesso direto de escrita ao repositório da equipe.
 
-> No ambiente gerenciado, o remoto `origin` é reservado ao ciclo de versões da plataforma. Para criar o repositório GitHub, use **Configurações → GitHub** no painel do projeto e exporte para o proprietário e o nome definidos pela equipe. Não substitua esse remoto dentro deste ambiente.
+O fluxo de contribuição detalhado está em [CONTRIBUTING.md](CONTRIBUTING.md). Toda tarefa deve partir de um cartão do Trello, ser desenvolvida em uma branch curta e chegar à `master` somente por pull request revisada. Utilize títulos objetivos, por exemplo `feat: agenda-publica`, `fix: bloqueia-dupla-reserva` ou `docs: revisa-requisitos`.
 
 ## Segurança e escopo
 
