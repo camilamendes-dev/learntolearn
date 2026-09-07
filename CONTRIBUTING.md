@@ -13,15 +13,22 @@ Leia o [Documento de Requisitos](docs/requisitos_do_sistema.md), encontre o cart
 | Documentação | `docs/<resumo>` | `docs/requisitos-sprint-1` |
 | Teste | `test/<cartao>-<resumo>` | `test/014-reserva-autenticada` |
 
-## Fluxo de trabalho
+## Fluxo de trabalho por fork
 
-1. Atualize a cópia local com `git pull origin main`.
-2. Crie uma branch a partir de `main`, usando um dos padrões acima.
-3. Implemente uma alteração coesa e mantenha os tipos e a formatação do projeto.
-4. Execute `pnpm check`, `pnpm test` e `pnpm build`.
-5. Faça um commit semântico, por exemplo `feat: permite criar slot de aula`.
-6. Envie a branch e abra uma pull request para `main`.
-7. Relacione a pull request ao cartão Trello, registre o resultado de QA e solicite revisão.
+O repositório principal é público e adota contribuição por **fork e pull request**. Esse modelo permite que qualquer colega obtenha uma cópia do código, proponha alterações e receba revisão sem acesso direto de escrita ao repositório da equipe.
+
+Primeiro, selecione **Fork** no repositório [camilamendes-dev/learntolearn](https://github.com/camilamendes-dev/learntolearn). Em seguida, clone o seu fork e cadastre o repositório principal como `upstream`.
+
+```bash
+git clone https://github.com/SEU-USUARIO/learntolearn.git
+cd learntolearn
+git remote add upstream https://github.com/camilamendes-dev/learntolearn.git
+git pull upstream master
+```
+
+Crie uma branch a partir de `master`, usando os padrões definidos neste documento. Implemente uma alteração coesa, execute `pnpm check`, `pnpm test` e `pnpm build`, e faça um commit semântico, por exemplo `feat: permite criar slot de aula`. Envie a branch ao seu fork com `git push origin <nome-da-branch>` e abra uma pull request do seu fork para `camilamendes-dev/learntolearn:master`.
+
+Por fim, relacione a pull request ao cartão Trello, registre o resultado de QA e solicite revisão. Antes de começar uma nova tarefa, atualize a cópia local com `git pull upstream master`.
 
 ## Padrão de pull request
 
