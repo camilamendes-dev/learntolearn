@@ -30,4 +30,7 @@
 - [x] Reorganizar os cartões de cada lista do Trello em ordem numérica crescente e confirmar a sequência final.
 - [x] Reescrever o documento de requisitos em uma versão profissional, coerente com a implementação e rastreável ao Trello.
 - [x] Preparar o projeto para colaboração no GitHub com documentação de instalação, contribuição e fluxo de pull request.
-- [ ] Publicar a versão preparada do projeto no repositório GitHub https://github.com/camilamendes-dev/learntolearn e validar o acesso colaborativo.
+- [x] Criar README visual do projeto com capturas reais das telas e funcionalidades.
+- [ ] Publicar e validar o README visual no repositório GitHub.
+- [x] Corrigir a referência ao `.env.example` no README e revalidar as instruções de configuração local.
+- [ ] Preparar e entregar um ZIP completo do projeto para abertura local no VS Code.
